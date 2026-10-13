@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "targets": [
+    {"id":"qemu-arm64-virt","role":"first-execution","architecture":"aarch64","status":"planned","kernel":"jeios-fresh-c","lunch":null,"blockers":["MP0 exact board/tool/loader contract","MP1 native ARM64 port"]},
+    {"id":"pixel9-tokay","role":"first-physical-candidate","architecture":"aarch64","status":"research","kernel":"jeios-fresh-c","lunch":null,"blockers":["MP4 boot/firmware/recovery feasibility","Native device drivers and DMA/power contracts","MP1-MP3 ARM64 execution qualification"]},
+    {"id":"pixel10-frankel","role":"next-physical-candidate","architecture":"aarch64","status":"research","kernel":"jeios-fresh-c","lunch":null,"blockers":["Independent MP4 feasibility dossier","No inherited Pixel 9 support"]}
+  ]
+}

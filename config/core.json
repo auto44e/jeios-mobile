@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "repository": "https://github.com/auto44e/jeios.git",
+  "commit": "03aa2f380d8e49262abd1720a3b8db37517cbb31",
+  "kernel": "jeios-fresh-c",
+  "qualified_architectures": ["x86_64-bsp-prototype"],
+  "arm64_ready": false
+}
