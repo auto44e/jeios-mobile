@@ -20,3 +20,11 @@ Core AMD64 M3a continues independently; mobile must qualify equivalent ARM64 sta
 Now: planning scaffold only. Next coding task MP0, then core ARM64 MP1.
 MP4/AC0 planning can proceed without claiming emulator or app execution.
 Pixel 10 receives a distinct MP4/MP5 record; Pixel 9 success cannot qualify it.
+
+## Cross-cutting zero trust — owner requirement 2026-10-14
+
+Follow the shared core zero-trust proposal linked in HANDOFF.md. MP0 records trust
+boundaries; MP3 qualifies process/handle/IPC enforcement; MP6 and AC gates test
+native broker permissions and foreign identity mapping; SEC tests enrollment,
+revocation, offline policy and recovery. Neither paired peers nor first-party
+services gain ambient authority. These are planned acceptance requirements.
