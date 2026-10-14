@@ -1,5 +1,38 @@
 # Mobile agent handoff
 
+## Current status — observed 2026-10-14T23:50:13.156Z
+
+Inspected main: `55505743500809b5714a725cb23e155a569791b1`. No pre-existing mobile PRs
+were returned. Planning/scaffold only; MP0 remains next. No ARM64, Pixel or Android
+execution is claimed. This documentation update will have a separate unmerged PR.
+Core PR #11 merged 2026-10-13T23:10:59Z at
+`e897e02f9038e164efbb590cfc0229e8300bff54`; the pinned implementation dependency is unchanged.
+
+Owner requirement 2026-10-14: ecosystem-wide
+[zero trust](https://github.com/auto44e/jeios/blob/docs/zero-trust-status-20261014/docs/ZERO_TRUST.md).
+Qualify core enforcement on ARM64 at MP3; apply broker, device, Android and remote
+peer rules at MP6/AC/SEC. No implicit trust from pairing, Android UID/root, stock
+app status or device branding. Offline revocation and recovery need explicit tests.
+This is planned design, not a completed mobile security feature. The core proposal
+link targets its companion review branch until merged; then use core main.
+
+## Status refresh and historical records
+
+Owner preference recorded 2026-10-14: retain detailed timestamped history alongside
+a clearly labeled current status. Every refresher must record an ISO-8601
+observation time with timezone, repository/branch and exact inspected commit,
+implemented/tested/planned/blocked states, PR/issue state, evidence and next task.
+Separate an event's timestamp from the time it was verified. If an old record has
+only a date, preserve that precision; never invent a time. Keep superseded plans
+and previous failures as labeled history with links to their replacements.
+
+Current status takes precedence over historical branch names or open/closed
+wording. Preserve previous test results at their original commit and environment;
+do not present them as rerun or current-head CI. State unverified items explicitly.
+Use enough detail for an agent to resume without reconstructing the conversation.
+
+## Historical scaffold checkpoint — 2026-10-13
+
 2026-10-13. Repository: auto44e/jeios-mobile. Owner selected the fresh JeiOS C
 kernel for mobile, explicitly superseding the AOSP/Linux host proposal. AOSP is
 reference material and a future Android app layer across the ecosystem.
