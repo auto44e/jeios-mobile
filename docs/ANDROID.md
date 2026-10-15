@@ -72,3 +72,79 @@ port is not perpetual compatibility. No test runner/certification claims yet.
 Primary references reviewed 2026-10-13:
 - https://source.android.com/docs/core/architecture
 - https://source.android.com/docs/core/architecture/ipc/binder-overview
+
+## Cryptographic relock: compatibility-layer responsibility
+
+Owner clarification: 2026-10-14T20:15:24-04:00. The future AOSP-derived Android
+compatibility layer must perform more lifecycle and recovery work than the native
+SDK because existing Android apps are not written for JeiOS cryptographic relock.
+This applies across desktop/mobile and all qualified host architectures. It is a
+planned integration obligation, not a claim that Android runtime support exists.
+
+The host owns lock policy, credential authentication, key eviction and final
+enforcement. The compatibility manager adapts foreign lifecycle semantics; it
+cannot veto relock, keep a hidden copy of user keys, or weaken host protection
+to preserve app compatibility. Android callbacks alone do not establish cleanup.
+
+### Required integration responsibilities
+
+- Map Android users/profiles and app identities to native protected domains and
+  scoped broker authority. Map credential-gated and intentionally boot-available
+  data explicitly; do not automatically classify every Android background service
+  as an exception. Prevent weaker storage classes from silently receiving protected
+  content. Document unavoidable shared-runtime isolation limits.
+- Coordinate framework/ART services, app lifecycle, task scheduling, Binder
+  transactions, native/JNI processes and file/storage operations during relock.
+  Attempt bounded graceful state saving where supported, then enforce cancellation
+  or termination at the host deadline. Cover runtime/framework caches, app heaps,
+  JIT/native allocations and shared buffers, not only app-private files.
+- Revoke broker resources for graphics, audio, camera, sensors, clipboard, input,
+  network and keystore operations. Quiesce DMA through native device brokers.
+  Protect snapshots, recents thumbnails, notifications and compatibility logs.
+  Stop domain-specific framework services or the entire compatibility domain when
+  shared plaintext cannot be safely separated.
+- Prefer application-supported persistence and framework task reconstruction.
+  Investigate encrypted process/domain checkpointing only as a separately reviewed
+  option with complete key, pointer, resource and restart contracts. Do not assume
+  a saved heap can safely resume across runtime versions, devices or policy changes.
+  Suspending a whole runtime while retaining plaintext does not meet relock.
+- After host-authorized unlock, reconstruct the runtime/app task state, validate
+  saved data, reopen storage and reacquire current native permissions and handles.
+  Treat Binder objects, descriptors, GPU contexts and sockets as resources requiring
+  explicit reconstruction or failure handling; never restore stale authority.
+- Reconcile interrupted writes and external operations. Do not blindly replay
+  messages, purchases, authentication requests or other side effects. Handle
+  expired sessions and jobs visibly. Keep lock preparation bounded even if a
+  foreign app crashes or ignores lifecycle callbacks.
+
+### Compatibility and user experience
+
+Aim for seamless task return without requiring changes to every Android app.
+However, the layer cannot reconstruct unsaved state that an app never persisted
+unless a separately qualified checkpoint mechanism preserves it. It cannot make
+an arbitrary external operation replay-safe. Publish per-app/version/runtime
+behavior: transparent restoration, restart with durable state, limited recovery
+or unsupported. Clearly disclose work that may be lost before relying on that
+profile; never promise universal seamless restoration from framework hooks alone.
+
+Background exceptions for calls, alarms, notifications or playback must use
+explicitly scoped data/services and host policy. Their presence means that data
+is outside the relocked domain's coverage. An incompatible app does not silently
+change the device's lock policy; offer a visible owner-authorized exception where
+allowed, or stop the app/decline the unsupported feature.
+
+### Planning and qualification gates
+
+AC0 must include the relock dependency ledger and trust-boundary design before
+choosing runtime architecture. AC1 tests lifecycle/resource probes; AC2 qualifies
+real app/version combinations. Native M3 isolation, storage and device lifecycle,
+and the cryptographic prerequisites remain mandatory dependencies.
+
+Test Java and JNI/native apps, multiple profiles, shared framework services,
+in-flight/nested Binder calls, foreground/background tasks, large dirty heaps,
+low storage, malformed checkpoints, repeated relock, process death, network loss,
+suspend/resume and GPU/device work. Verify host survivor progress, no accessible
+protected keys/plaintext after completed relock, no authority revival and no
+duplicate external side effects on unlock. Record exact builds and platforms.
+Native implementation belongs in shared core/runtime components; this repository
+owns Android integration planning and compatibility qualification.
