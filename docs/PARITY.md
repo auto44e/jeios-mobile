@@ -12,7 +12,7 @@ All capabilities below are planned in mobile; do not confuse a spec with support
 | Domains/fleets | Mixed Windows/macOS/Linux interoperability and policy inspection | Native mobile policy adapters, offline behavior and managed-device trust |
 | Input/customization | Multitouch touchscreens/trackpads, accessibility, good defaults and deep configuration | Touch targets, rotation, external input/display support; no gesture-only recovery |
 | MFA | Hardware keys, verified factors, backup/recovery | USB/NFC drivers and secure UI; preboot qualification separate |
-| Storage | Provisional ext4, scoped files, raw disk rights and format matrix | Flash/controller availability, mounted-range exclusivity and power-loss tests |
+| Storage | Shared backends; ext4 initial bring-up, Btrfs/OpenZFS long-term targets, F2FS provisional mobile default | F2FS qualification (#7), controller availability, scoped raw access and power-loss tests |
 | GPU/NPU/media | Open standards, conservative configurable offload, CPU fallback, media integration goals | Driver/thermal/SDK feasibility; no universal accelerator or BRAW availability |
 | Init/services | Configurable lifecycle, bounded restart and explainable effective policy | Suspend/wake and battery-aware service admission |
 | Android apps | Common optional compatibility layer and security semantics | ABI/features per app; same layer applies to desktop and qualified IoT profiles |
@@ -25,3 +25,21 @@ Interoperability tests cover native-native, native-mobile and Android-adapted
 clients, including negative permission, recovery and offline cases. Unsupported
 functions remain discoverable with clear explanation rather than disappearing
 behind UI complexity presets.
+
+## Core POSIX and LDAP requirements — 2026-10-16
+
+The owner requires POSIX.1-2024 compatibility and built-in LDAPv3 directory
+integration across desktop and mobile. Shared contracts are in the companion core
+[standards proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/STANDARDS.md).
+The branch link identifies the unmerged proposal; use main after it lands.
+Implementation belongs in shared core/runtime services, not a mobile fork.
+
+Qualify POSIX semantics on native ARM64 and LDAP identity mapping under suspend,
+network loss, cache expiry, relock and work-profile separation. Enrollment remains
+optional and unmanaged local accounts work offline. Expose unsupported operations
+honestly; Android support, AD DS/GPO and cloud identity are separate qualifications.
+MP0 remains next; execution waits for MP3 and relevant core M3-M6/SEC gates.
+No runtime or conformance claim is added by these requirements.
+
+Track core [#15](https://github.com/auto44e/jeios/issues/15) and
+[#16](https://github.com/auto44e/jeios/issues/16) through mobile parity issue #5.
