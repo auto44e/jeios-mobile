@@ -46,3 +46,11 @@ No runtime or conformance claim is added by these requirements.
 
 Track core [#15](https://github.com/auto44e/jeios/issues/15) and
 [#16](https://github.com/auto44e/jeios/issues/16) through mobile parity issue #5.
+
+## Ecosystem coding discipline — 2026-10-16
+
+Adopt the shared [coding-policy proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/CODING_STANDARD.md)
+(core PR #17, enforcement core #19) across integration, tools, apps and packaging.
+Use main after adoption; actual dependencies still require reviewed commit pins.
+MP0 remains next. Future mobile assurance must include native ARM64, device/power
+and recovery evidence; current manifest tests cannot establish those properties.

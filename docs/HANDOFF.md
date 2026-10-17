@@ -1,5 +1,28 @@
 # Mobile agent handoff
 
+## Ecosystem coding-policy refresh — observed 2026-10-17T00:12:28+00:00
+
+Owner direction: 2026-10-16T20:01:26-04:00, reaffirmed
+2026-10-16T20:08:52-04:00. Inspected `auto44e/jeios-mobile` branch
+`docs/posix-ldap-20261016` at `b2ab0f0a75cc6e8902408eb222474de592adfdc5`.
+Core PR #17 and mobile PR #8 were observed open/unmerged. This update extends
+PR #8; core #19 is open for policy audit/enforcement alongside CI #18.
+No board membership or reviewer assignment is claimed.
+
+Implemented: documentation policy and contributor guidance only; runtime remains
+core M1/M2 AMD64 and mobile planning scaffold. Planned: ecosystem-wide NASA/JPL-
+inspired rules, risk profiles, baseline audit and staged automated enforcement.
+Blocked/unverified: no complete existing-code audit, independent review or NASA
+certification; no new analyzer/workflow or native mobile qualification.
+Core CODING_STANDARD.md is the shared proposal in PR #17; mobile references it.
+Next: core M3a and mobile MP0, with bounded #19/#18 enforcement work alongside.
+
+Validation: `python3 tools/validate.py`, `python3 tools/target_plan.py` and `python3 -m unittest discover -s tests -v` passed (four tests). These validate planning only.
+Documentation links, conflict markers and `git diff --check` checked separately
+before publication. No emulator rerun for documentation-only edits. New-head
+remote CI must be observed separately. Historical evidence below retains its
+original revision/time; this entry supersedes earlier current-status wording.
+
 ## Current refresh — observed 2026-10-16T23:08:34+00:00
 
 Inspected `auto44e/jeios-mobile` main at `79b3565a3049862c16d4696cd6ada233e03523da`.
