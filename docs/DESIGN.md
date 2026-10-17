@@ -132,3 +132,21 @@ Android compatibility implementation choice; reproducible toolchain; security an
 power budgets. ARM64 proof and Pixel research may proceed independently, but
 userspace services depend on core M3 handle/process/IPC boundaries. No milestone
 is complete merely because another architecture's tests passed.
+
+## Core POSIX and LDAP requirements — 2026-10-16
+
+The owner requires POSIX.1-2024 compatibility and built-in LDAPv3 directory
+integration across desktop and mobile. Shared contracts are in the companion core
+[standards proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/STANDARDS.md).
+The branch link identifies the unmerged proposal; use main after it lands.
+Implementation belongs in shared core/runtime services, not a mobile fork.
+
+Qualify POSIX semantics on native ARM64 and LDAP identity mapping under suspend,
+network loss, cache expiry, relock and work-profile separation. Enrollment remains
+optional and unmanaged local accounts work offline. Expose unsupported operations
+honestly; Android support, AD DS/GPO and cloud identity are separate qualifications.
+MP0 remains next; execution waits for MP3 and relevant core M3-M6/SEC gates.
+No runtime or conformance claim is added by these requirements.
+
+Track core [#15](https://github.com/auto44e/jeios/issues/15) and
+[#16](https://github.com/auto44e/jeios/issues/16) through mobile parity issue #5.

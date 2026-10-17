@@ -1,5 +1,58 @@
 # Mobile agent handoff
 
+## Ecosystem coding-policy refresh — observed 2026-10-17T00:12:28+00:00
+
+Owner direction: 2026-10-16T20:01:26-04:00, reaffirmed
+2026-10-16T20:08:52-04:00. Inspected `auto44e/jeios-mobile` branch
+`docs/posix-ldap-20261016` at `b2ab0f0a75cc6e8902408eb222474de592adfdc5`.
+Core PR #17 and mobile PR #8 were observed open/unmerged. This update extends
+PR #8; core #19 is open for policy audit/enforcement alongside CI #18.
+No board membership or reviewer assignment is claimed.
+
+Implemented: documentation policy and contributor guidance only; runtime remains
+core M1/M2 AMD64 and mobile planning scaffold. Planned: ecosystem-wide NASA/JPL-
+inspired rules, risk profiles, baseline audit and staged automated enforcement.
+Blocked/unverified: no complete existing-code audit, independent review or NASA
+certification; no new analyzer/workflow or native mobile qualification.
+Core CODING_STANDARD.md is the shared proposal in PR #17; mobile references it.
+Next: core M3a and mobile MP0, with bounded #19/#18 enforcement work alongside.
+
+Validation: `python3 tools/validate.py`, `python3 tools/target_plan.py` and `python3 -m unittest discover -s tests -v` passed (four tests). These validate planning only.
+Documentation links, conflict markers and `git diff --check` checked separately
+before publication. No emulator rerun for documentation-only edits. New-head
+remote CI must be observed separately. Historical evidence below retains its
+original revision/time; this entry supersedes earlier current-status wording.
+
+## Current refresh — observed 2026-10-16T23:08:34+00:00
+
+Inspected `auto44e/jeios-mobile` main at `79b3565a3049862c16d4696cd6ada233e03523da`.
+Mobile #6 merged 2026-10-15T00:46:30Z.
+No open PRs existed in either repository at initial inspection. This update uses
+`docs/posix-ldap-20261016` and will be submitted as an unmerged review PR.
+Mobile #1-#5 and #7 open; parity #5 carries the new requirements.
+
+Implemented: core M1/M2 AMD64 foundation; mobile planning/manifest scaffold only.
+Planned: POSIX.1-2024 and built-in LDAPv3 are now core requirements, owner decision
+2026-10-16T19:04:18-04:00. Organizational enrollment remains optional.
+Blocked: native POSIX/directory runtime awaits isolation, services, storage,
+networking and security prerequisites; mobile also awaits ARM64 qualification.
+Next bounded tasks remain core M3a (#2 contracts first) and mobile MP0 (#1).
+New standards ADR/qualification planning can proceed without claiming runtime work.
+
+Preserve all historical decisions below, including immutability/off switch,
+versioned updates independent of immutability, F2FS selection, crypto relock,
+zero trust, customization, Android planning, multitouch and hardware MFA.
+Earlier references to then-open PRs or candidate-only LDAP are historical.
+Mobile `python3 tools/validate.py`, `python3 tools/target_plan.py` and
+`python3 -m unittest discover -s tests -v` passed (four tests).
+The pinned core implementation revision remains unchanged.
+Relative Markdown targets, whitespace and conflict-marker checks passed.
+GitHub CI for the new PR head is separate from local results.
+Project board verified: new core #15 and #16 are present as Todo; prior merged
+PRs are Done. Refreshed stale core #2-#9 baseline guidance and mobile #5 parity.
+No boot behavior changes; no emulator/device tests or POSIX/LDAP runtime tests claimed.
+
+
 ## F2FS approval and agent tasks — 2026-10-14T20:43:47-04:00
 
 Owner approved F2FS as the provisional mobile default, subject to actual JeiOS
@@ -130,7 +183,7 @@ No new links were introduced. Build/emulator tests were not rerun for this
 documentation-only clarification; prior evidence remains at its recorded commits.
 
 
-## Current status — observed 2026-10-14T23:50:13.156Z
+## Historical status — observed 2026-10-14T23:50:13.156Z
 
 Inspected main: `55505743500809b5714a725cb23e155a569791b1`. No pre-existing mobile PRs
 were returned. Planning/scaffold only; MP0 remains next. No ARM64, Pixel or Android

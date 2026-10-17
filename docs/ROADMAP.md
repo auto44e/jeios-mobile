@@ -28,3 +28,29 @@ boundaries; MP3 qualifies process/handle/IPC enforcement; MP6 and AC gates test
 native broker permissions and foreign identity mapping; SEC tests enrollment,
 revocation, offline policy and recovery. Neither paired peers nor first-party
 services gain ambient authority. These are planned acceptance requirements.
+
+## Core POSIX and LDAP requirements — 2026-10-16
+
+The owner requires POSIX.1-2024 compatibility and built-in LDAPv3 directory
+integration across desktop and mobile. Shared contracts are in the companion core
+[standards proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/STANDARDS.md).
+The branch link identifies the unmerged proposal; use main after it lands.
+Implementation belongs in shared core/runtime services, not a mobile fork.
+
+Qualify POSIX semantics on native ARM64 and LDAP identity mapping under suspend,
+network loss, cache expiry, relock and work-profile separation. Enrollment remains
+optional and unmanaged local accounts work offline. Expose unsupported operations
+honestly; Android support, AD DS/GPO and cloud identity are separate qualifications.
+MP0 remains next; execution waits for MP3 and relevant core M3-M6/SEC gates.
+No runtime or conformance claim is added by these requirements.
+
+Track core [#15](https://github.com/auto44e/jeios/issues/15) and
+[#16](https://github.com/auto44e/jeios/issues/16) through mobile parity issue #5.
+
+## Ecosystem coding discipline — 2026-10-16
+
+Adopt the shared [coding-policy proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/CODING_STANDARD.md)
+(core PR #17, enforcement core #19) across integration, tools, apps and packaging.
+Use main after adoption; actual dependencies still require reviewed commit pins.
+MP0 remains next. Future mobile assurance must include native ARM64, device/power
+and recovery evidence; current manifest tests cannot establish those properties.
