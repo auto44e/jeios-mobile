@@ -1,5 +1,36 @@
 # Mobile agent handoff
 
+## Current phase refresh — observed 2026-10-19T10:44:37+00:00
+
+Inspected `auto44e/jeios-mobile` main `c7b42cd8a575fafc67c7a8e7742218dee3981e83` and core main
+`11a02adf744874328371b7f9f3bc801623995980`. Mobile PRs #8/#9 and core #51 are merged; no open PRs
+at initial inspection. MP0 issue #1 is closed/Done. Mobile #2 remains open and
+partially implemented (MP1 entry/console/vectors in shared core); MP2/MP3 planned.
+
+Implemented/tested upstream: AMD64 M3 complete; ARM64 early boot and EL1 exception
+vectors locally demonstrated in QEMU. Mobile validation is planning-only: observed
+remote run 39072964571 passed at the inspected mobile SHA; core run 39237040923
+passed at its SHA. Remote ARM boot tests remain absent. No Pixel/mobile UI/Android
+runtime support is claimed. `config/core.json` still pins the M1/M2 foundation;
+advancing that pin/schema requires separate integration evidence and review.
+
+Next bounded task: core #52 DTB parsing and remote boot CI, followed by MP2/MP3
+under mobile #2. Core #53 M4 services/devices and #54 read-only M5a implement the
+[shared next phase](https://github.com/auto44e/jeios/blob/main/docs/NEXT_PHASE.md).
+Cross-device parity and #7 F2FS qualification remain later tracked work. This is
+a documentation/status update; no runtime/configuration or frozen ADR edits.
+Earlier evidence and dated decisions below are historical; this block supersedes
+their open/closed/current-priority wording.
+
+
+Local verification for this docs-only refresh: `python3 tools/validate.py`,
+`python3 tools/target_plan.py` and `python3 -m unittest discover -s tests -v`
+passed (four tests). The planner describes the intentionally unchanged old pin;
+it does not negate newer upstream ARM boot evidence. No emulator rerun.
+Relative Markdown links and `git diff --check` passed.
+Project board verified core #52/#53/#54 and #18/#19 as Todo; mobile #2 as
+In Progress. Current overview updated while preserving its earlier history.
+
 ## Ecosystem coding-policy refresh — observed 2026-10-17T00:12:28+00:00
 
 Owner direction: 2026-10-16T20:01:26-04:00, reaffirmed

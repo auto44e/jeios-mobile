@@ -1,7 +1,11 @@
 # ARM64 port: first executable workstream
 
-Status: proposed contracts requiring a core ADR before code. Shared implementation
-belongs in auto44e/jeios, not a second kernel under this repository.
+Status refreshed 2026-10-19: MP0 accepted in ADR 0002 (PR #9 merged); shared core
+MP1 entry/console and EL1 exception vectors are implemented and locally QEMU-tested.
+Bounded DTB parsing and remote ARM boot CI remain (core #52). MP2/MP3 remain
+planned. The sections below state gate requirements, not blanket completion.
+Shared implementation belongs in auto44e/jeios; config/core.json remains the
+older integration pin pending a separately reviewed update.
 
 ## MP0: reproducible target contract
 
