@@ -1,5 +1,8 @@
 # JeiOS Mobile
 
+New contributor? Start with the [development getting-started guide](https://github.com/auto44e/jeios/blob/main/docs/GETTING_STARTED.md),
+including a plain-English conversational path with an agent.
+
 Mobile platform planning and integration for the **fresh C JeiOS kernel**.
 The same core serves desktop, mobile and other qualified device profiles.
 **AOSP is a reference and a future Android application compatibility layer;

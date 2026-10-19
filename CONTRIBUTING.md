@@ -1,5 +1,8 @@
 # Contributing to JeiOS Mobile
 
+New contributor? Start with the [development getting-started guide](https://github.com/auto44e/jeios/blob/main/docs/GETTING_STARTED.md),
+including a plain-English conversational path with an agent.
+
 Read AGENTS.md, README.md and docs/HANDOFF.md. Shared kernel code belongs in
 auto44e/jeios; this repository owns integration and qualification. Use small
 reviewable branches and PRs; do not merge or claim device qualification from
