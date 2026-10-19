@@ -1,5 +1,28 @@
 # Mobile agent handoff
 
+## Contributor guidance refresh — observed 2026-10-19T11:09:52+00:00
+
+Inspected jeios-mobile main at `d790d2f48a9a9f3093f412d9fabed2952974f7c0`. Owner requested additional
+guidance for other contributors: expansive risk-based local CI/testing, PR result
+data and an easy-to-hard assistance scale adjustable even mid-session. Added
+contributor/agent guidance and a PR evidence template; core holds the shared guide.
+Easy mode includes setup, plain-language OS/coding explanations and contribution/
+decision walkthroughs; hard mode still follows all standards, docs and gates.
+Owner clarification: fully guided contributors can work through natural
+plain-English conversation without prior code/terminal/Git syntax knowledge.
+Added a shared development getting-started guide with conversational and manual
+paths, setup/build/test/PR steps and a mobile entry point.
+This is documentation only, not new CI enforcement, runtime support or an owner
+onboarding requirement. Existing milestone status and owner gates are unchanged.
+
+Local verification on this docs-only patch over the inspected revision:
+`python3 tools/validate.py`, `python3 tools/target_plan.py` and
+`python3 -m unittest discover -s tests -v` passed (four tests; planning only).
+Changed Markdown links and `git diff --check` checked before publication.
+No emulator rerun for docs/template changes; no new-head remote CI result claimed
+here. Next: review/merge the guidance; implementation priorities remain #52/#53/#54
+and mobile #2. CI automation/enforcement remains core #18/#19.
+
 ## Current phase refresh — observed 2026-10-19T10:44:37+00:00
 
 Inspected `auto44e/jeios-mobile` main `c7b42cd8a575fafc67c7a8e7742218dee3981e83` and core main
