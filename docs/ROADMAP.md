@@ -1,7 +1,7 @@
 # Fresh-kernel mobile gates
 
 No deadlines or implied device support. Dependencies are acceptance boundaries.
-Core AMD64 M3a continues independently; mobile must qualify equivalent ARM64 state.
+Core AMD64 M3 is complete; mobile must qualify equivalent ARM64 state separately.
 
 | Gate | Deliverable | Pass criteria / dependency |
 | --- | --- | --- |
@@ -17,8 +17,13 @@ Core AMD64 M3a continues independently; mobile must qualify equivalent ARM64 sta
 | AC2 | Curated Android apps across ISA/device profiles | App/version/ABI matrix and native authority containment, no blanket support |
 | SEC | Mobile release qualification | Signed update/recovery, entropy/key isolation, power-loss/thermal and reviewed security evidence |
 
-Now: planning scaffold only. Next coding task MP0, then core ARM64 MP1.
-MP4/AC0 planning can proceed without claiming emulator or app execution.
+Current: MP0 complete (mobile #1 closed; PR #9 merged). MP1 entry/console and
+EL1 vectors execute in the shared core; DTB parsing remains in core #52, alongside
+remote ARM boot CI. MP2 MMU/timer/scheduling then MP3 EL0/IPC parity remain planned
+in mobile #2. Core #53 M4 and #54 read-only M5a define the native service phase;
+see the shared [phase plan](https://github.com/auto44e/jeios/blob/main/docs/NEXT_PHASE.md).
+The old config/core.json pin is not advanced by this docs-only update.
+MP4/AC0 research can proceed without claiming physical device or app execution.
 Pixel 10 receives a distinct MP4/MP5 record; Pixel 9 success cannot qualify it.
 
 ## Cross-cutting zero trust — owner requirement 2026-10-14
@@ -33,15 +38,15 @@ services gain ambient authority. These are planned acceptance requirements.
 
 The owner requires POSIX.1-2024 compatibility and built-in LDAPv3 directory
 integration across desktop and mobile. Shared contracts are in the companion core
-[standards proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/STANDARDS.md).
-The branch link identifies the unmerged proposal; use main after it lands.
+[standards proposal](https://github.com/auto44e/jeios/blob/main/docs/STANDARDS.md).
+The standards proposal was merged through core PR #17.
 Implementation belongs in shared core/runtime services, not a mobile fork.
 
 Qualify POSIX semantics on native ARM64 and LDAP identity mapping under suspend,
 network loss, cache expiry, relock and work-profile separation. Enrollment remains
 optional and unmanaged local accounts work offline. Expose unsupported operations
 honestly; Android support, AD DS/GPO and cloud identity are separate qualifications.
-MP0 remains next; execution waits for MP3 and relevant core M3-M6/SEC gates.
+MP0 is complete; full userspace execution waits for MP3 and relevant core M3-M6/SEC gates.
 No runtime or conformance claim is added by these requirements.
 
 Track core [#15](https://github.com/auto44e/jeios/issues/15) and
@@ -49,8 +54,8 @@ Track core [#15](https://github.com/auto44e/jeios/issues/15) and
 
 ## Ecosystem coding discipline — 2026-10-16
 
-Adopt the shared [coding-policy proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/CODING_STANDARD.md)
+Adopt the shared [coding-policy proposal](https://github.com/auto44e/jeios/blob/main/docs/CODING_STANDARD.md)
 (core PR #17, enforcement core #19) across integration, tools, apps and packaging.
-Use main after adoption; actual dependencies still require reviewed commit pins.
-MP0 remains next. Future mobile assurance must include native ARM64, device/power
+Policy is adopted; actual dependencies still require reviewed commit pins.
+MP1 completion is next. Future mobile assurance must include native ARM64, device/power
 and recovery evidence; current manifest tests cannot establish those properties.

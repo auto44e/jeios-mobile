@@ -44,8 +44,8 @@ Use enough detail for an agent to resume without reconstructing the conversation
 ## Ecosystem coding policy
 
 Apply shared NASA/JPL-inspired risk profiles and JCS rules from the core
-[coding-policy proposal](https://github.com/auto44e/jeios/blob/docs/posix-ldap-20261016/docs/CODING_STANDARD.md)
-in core PR #17; use main after adoption. Classify mobile packaging, platform
+[coding-policy proposal](https://github.com/auto44e/jeios/blob/main/docs/CODING_STANDARD.md)
+adopted through merged core PR #17. Classify mobile packaging, platform
 integration and apps by authority/failure impact. Record rule evidence and
 deviations; host validation is not native qualification. Core #19 tracks shared
 enforcement. No existing-code conformity or NASA certification is claimed.
