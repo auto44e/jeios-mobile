@@ -1,5 +1,7 @@
 # Fresh-kernel mobile architecture
 
+Owner-approved [two-phase native shell and selectable shell roadmap](https://github.com/auto44e/jeios/blob/main/docs/SHELLS.md): recovery + original JeiOS sh, included native Bash/Zsh, and bring-your-own shell. PowerShell deferred. Planned, not runtime support.
+
 ## Overall product vision: approachable defaults, deep owner control
 
 Owner clarification: 2026-10-14T19:59:09-04:00. This philosophy governs the

@@ -1,5 +1,27 @@
 # ARM64 port: first executable workstream
 
+## Current ecosystem status — observed 2026-11-01T21:30:30-05:00
+
+Core main `0f702036c52d40d03bb4c8919d0dcae53ba9f2b1`: AMD64 M3 and scoped M4 complete; PR #70
+merged. ARM64 MP1 complete (#52); MP2 then MP3 remain. Main CI passed:
+https://github.com/auto44e/jeios/actions/runs/41376309893 . M4 qualifies bounded
+supervisor/broker/COM2 UART scenarios, not arbitrary hardware, DMA or a release.
+Mobile main `f1d9b0d87746e9dc353a2f48e7b9d27e7fe86d07` has passing planning CI:
+https://github.com/auto44e/jeios-mobile/actions/runs/39243515951 . Its core pin
+remains older M1/M2; upstream progress does not qualify that integration.
+No open PRs were observed before this refresh. M4 #53 is now closed as completed;
+MP2 (mobile #2) is next execution work; M5a #54 remains planned.
+
+Shell roadmap: SH1 recovery #71, SH2 original native sh #72, included native
+Bash/Zsh and custom-shell registration #73; mobile parity #12. PowerShell deferred.
+All shell implementation remains planned. Storage, networking, desktop, POSIX
+completion, LDAP, encryption, fleet/ISO 27001 features, RISC-V, accelerators and
+Android execution remain later gates. Standards adoption is not certification.
+This current status supersedes older next-task/status wording below; timestamped
+records remain evidence at their original revisions, not new test runs.
+
+## Historical port status and retained contracts
+
 Status refreshed 2026-10-19: MP0 accepted in ADR 0002 (PR #9 merged); shared core
 MP1 entry/console and EL1 exception vectors are implemented and locally QEMU-tested.
 Bounded DTB parsing and remote ARM boot CI remain (core #52). MP2/MP3 remain
