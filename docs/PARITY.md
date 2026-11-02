@@ -1,5 +1,7 @@
 # Ecosystem capability parity
 
+Owner-approved [two-phase native shell and selectable shell roadmap](https://github.com/auto44e/jeios/blob/main/docs/SHELLS.md): recovery + original JeiOS sh, included native Bash/Zsh, and bring-your-own shell. PowerShell deferred. Planned, not runtime support.
+
 Owner goal: near 1:1 functionality across device types within reason. Share rights,
 data formats, service contracts and outcomes; adapt UI, scheduling and hardware
 paths. A phone does not become a desktop by silently weakening its security.
