@@ -1,8 +1,18 @@
 # Mobile agent handoff
 
+## Audit refresh — 2026-11-06 UTC
+
+Implemented: canonical status routing and dated-history labels; core adds audit response and corrected security introduction. Tested: `python3 tools/validate.py`, `python3 tools/target_plan.py`, and `python3 -m unittest discover -s tests -v` passed (4 tests). These validate planning, not device boot. Core pin unchanged. `git diff --check` passed.
+
+Reviewed audit PR #86 against fetched core main `fc8b8af931ee3fc79a82dcecc23356ba964c662b` and mobile main `d9a5146b1de5b870f495ccf5300ee7b679c3507e`. Both baseline main CI runs passed; this is not new-PR CI evidence. No runtime invariants changed.
+
+Next: core #87 tracks remaining MP2 scheduling, lifecycle design review before MP3, and ARM service parity; #18/#19 track named critical-mutant CI. Require explicit pass/fail runtime evidence for each implementation gate. Lifecycle extraction is a proposal requiring owner review, not authorization to change tested paths. Mobile stays unqualified. Original dirty checkouts were preserved using separate worktrees.
+
+Current shared-core checkpoint: [STATUS.md](https://github.com/auto44e/jeios/blob/main/docs/STATUS.md). Core through #86 includes ARM MMU and returning IRQ proofs; scheduling and MP3 remain ahead. Mobile integration remains planning-only at main d9a5146; core.json stays pinned to 03aa2f3 with arm64_ready=false. Earlier next-task wording below is historical.
+
 Refresh validation: `python3 tools/validate.py`, `python3 tools/target_plan.py`, and `python3 -m unittest discover -s tests -v` passed (four tests). Planning validation only. Local Markdown links and `git diff --check` passed. No emulator rerun for this docs-only change; cited remote CI is for inspected main, not the new documentation head. Board summary/history refreshed; shell issues #71–#73 and mobile #12 added Todo; M4 #53 Done. Single-agent docs contribution, no independent human qualification. Branch `docs/native-shell-refresh`; no ABI, runtime, dependency import or mobile pin change.
 
-## Current ecosystem status — observed 2026-11-01T21:30:30-05:00
+## Historical ecosystem status — observed 2026-11-01T21:30:30-05:00
 
 Core main `0f702036c52d40d03bb4c8919d0dcae53ba9f2b1`: AMD64 M3 and scoped M4 complete; PR #70
 merged. ARM64 MP1 complete (#52); MP2 then MP3 remain. Main CI passed:
