@@ -1,6 +1,8 @@
 # ARM64 port: first executable workstream
 
-## Current ecosystem status — observed 2026-11-01T21:30:30-05:00
+Current shared-core checkpoint: [STATUS.md](https://github.com/auto44e/jeios/blob/main/docs/STATUS.md). Core through #86 includes ARM MMU and returning IRQ proofs; scheduling and MP3 remain ahead. Mobile integration remains planning-only at main d9a5146; core.json stays pinned to 03aa2f3 with arm64_ready=false. Earlier next-task wording below is historical.
+
+## Historical ecosystem status — observed 2026-11-01T21:30:30-05:00
 
 Core main `0f702036c52d40d03bb4c8919d0dcae53ba9f2b1`: AMD64 M3 and scoped M4 complete; PR #70
 merged. ARM64 MP1 complete (#52); MP2 then MP3 remain. Main CI passed:
