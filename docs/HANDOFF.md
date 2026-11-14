@@ -1,5 +1,10 @@
 # Mobile agent handoff
 
+## Xcode projects — 2026-11-13T21:10:17-05:00
+
+Base `9221701ab2d5333978a294f54574ee384f4216e3`, branch tooling/xcode-project. Added source navigator, shared external-build schemes, task wrapper, deterministic generator and docs/XCODE.md. Runtime unchanged. Plist/XML references, regeneration, bash syntax and invalid-task rejection passed. bash tools/xcode-task.sh validate, test and plan: PASS (4 unit tests); planning only. Xcode/xcodebuild unavailable on Linux; Mac open/list/build and Docker-on-Mac execution remain unverified. No signing, flashing or device qualification. Next: validate on a Mac using docs/XCODE.md.
+
+
 ## Audit refresh — 2026-11-06 UTC
 
 Implemented: canonical status routing and dated-history labels; core adds audit response and corrected security introduction. Tested: `python3 tools/validate.py`, `python3 tools/target_plan.py`, and `python3 -m unittest discover -s tests -v` passed (4 tests). These validate planning, not device boot. Core pin unchanged. `git diff --check` passed.

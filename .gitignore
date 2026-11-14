@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 build/
 out/
+
+# Xcode per-user state
+xcuserdata/
+*.xcuserstate
+DerivedData/
