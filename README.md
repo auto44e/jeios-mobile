@@ -1,5 +1,7 @@
 # JeiOS Mobile
 
+Mac/Xcode development: [project setup and shared schemes](docs/XCODE.md).
+
 Current shared-core checkpoint: [STATUS.md](https://github.com/auto44e/jeios/blob/main/docs/STATUS.md). Core through #86 includes ARM MMU and returning IRQ proofs; scheduling and MP3 remain ahead. Mobile integration remains planning-only at main d9a5146; core.json stays pinned to 03aa2f3 with arm64_ready=false. Earlier next-task wording below is historical.
 
 Owner-approved [two-phase native shell and selectable shell roadmap](https://github.com/auto44e/jeios/blob/main/docs/SHELLS.md): recovery + original JeiOS sh, included native Bash/Zsh, and bring-your-own shell. PowerShell deferred. Planned, not runtime support.
